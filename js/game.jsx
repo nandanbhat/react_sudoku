@@ -84,11 +84,6 @@ class Controls extends React.Component {
     });
   }
 
-  undo(){
-    let lastState = localStorage.currentGame.splice(localStorage.currentGame.lastState -1, 1);
-    return lastState;
-  }
-
   componentWillUnmount() {
     this.unsubscribe();
   }
@@ -104,7 +99,6 @@ class Controls extends React.Component {
     }
     return (
       <div className="controls">
-        <button onClick='undo'>Undo</button>
         <p><Link to="/">Back</Link></p>
         {Sudoku.isComplete(this.state.game.cells)
           ? <p className="congratulations">Congratulations!</p>
